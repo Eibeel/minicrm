@@ -18,7 +18,6 @@ const InputForm: React.FC<TextInputProps> = ({ name, value, onChange, placeholde
       value={value}
       onChange={onChange}
       type={type}
-      required
     />
   )
 }
