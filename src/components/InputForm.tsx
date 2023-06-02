@@ -5,9 +5,10 @@ interface TextInputProps {
   value: string
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   placeholder?: string
+  type: string
 }
 
-const InputForm: React.FC<TextInputProps> = ({ name, value, onChange, placeholder }) => {
+const InputForm: React.FC<TextInputProps> = ({ name, value, onChange, placeholder, type }) => {
   return (
     <Input
       bgColor='whiteAlpha.700'
@@ -16,6 +17,8 @@ const InputForm: React.FC<TextInputProps> = ({ name, value, onChange, placeholde
       name={name}
       value={value}
       onChange={onChange}
+      type={type}
+      required
     />
   )
 }

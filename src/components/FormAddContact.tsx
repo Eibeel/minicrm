@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { Box, Button, Select, Text, VStack, forwardRef } from '@chakra-ui/react'
 import DatePicker from 'react-datepicker'
 import { AddUser } from 'iconoir-react'
-import { v4 as uuidv4 } from 'uuid'
 import useForm from '../hooks/useForm'
 import InputForm from './InputForm'
 import { useContactsStore } from '../store/contacts'
@@ -38,6 +37,11 @@ const FormAddContact = (
   }, [contactId])
 
   const handleAddContact = () => {
+    if (formValues.name.trim() === '') {
+      console.log('rellene todos los campos')
+      return
+    }
+
     const newContact = {
       name: formValues.name,
       lastName: formValues.lastName,
@@ -47,7 +51,7 @@ const FormAddContact = (
       cel: formValues.cel,
       typeContact: formValues.typeContact,
       origen: formValues.origen,
-      id: uuidv4()
+      id: formValues.id
     }
 
     addContact(newContact)
@@ -79,24 +83,28 @@ const FormAddContact = (
           name='name'
           value={formValues.name}
           onChange={handleFormChange}
+          type='text'
         />
         <InputForm
           placeholder='Apellidos'
           name='lastName'
           value={formValues.lastName}
           onChange={handleFormChange}
+          type='text'
         />
         <InputForm
           placeholder='E-mail'
           name='email'
           value={formValues.email}
           onChange={handleFormChange}
+          type='email'
         />
         <InputForm
           placeholder='Cel'
           name='cel'
           value={formValues.cel}
           onChange={handleFormChange}
+          type='cel'
         />
         <DatePicker
           selected={formValues.birthday}
@@ -109,6 +117,7 @@ const FormAddContact = (
           name='address'
           value={formValues.address}
           onChange={handleFormChange}
+          type='text'
         />
         <Select
           bgColor='whiteAlpha.700'
