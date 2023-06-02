@@ -1,5 +1,5 @@
 ### Mini CRM
-#### [Explorar](https://minicrm-beta.vercel.app/) 🚀
+#### [Explorar](https://minicrmbeta.vercel.app/) 🚀
 
 ### Stack:
 - React: Libreria de interfaces de usuario.
