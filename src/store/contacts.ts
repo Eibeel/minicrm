@@ -55,7 +55,7 @@ export const useContactsStore = create<State>((set) => {
     },
     filterContacts: (name: string) => {
       set(state => {
-        const filterContact = state.contacts.filter(contact => contact.name.includes(name))
+        const filterContact = state.contacts.filter(contact => contact.name.toLowerCase().includes(name.toLowerCase()))
         return { contacts: name !== '' ? filterContact : initialContacts }
       })
     }
